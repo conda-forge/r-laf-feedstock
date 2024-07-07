@@ -1,6 +1,5 @@
 {% set version = '0.8.4' %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-laf
@@ -13,8 +12,7 @@ source:
   sha256: d7cc2f9f106b4da3b1b66228977c084bb5a411680dd03d4685806242170840d6
 
 build:
-  merge_build_host: True  # [win]
-  number: 2
+  number: 3
   rpaths:
     - lib/R/lib/
     - lib/
@@ -22,7 +20,9 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}              # [not win]
+    - {{ stdlib("c") }}                # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
+    - {{ stdlib("m2w64_c") }}          # [win]
     - {{ compiler('cxx') }}            # [not win]
     - {{ compiler('m2w64_cxx') }}      # [win]
     - {{ posix }}filesystem        # [win]
@@ -35,7 +35,6 @@ requirements:
     - r-rcpp >=0.11.1
   run:
     - r-base
-    - {{ native }}gcc-libs         # [win]
     - r-rcpp >=0.11.1
 
 test:
