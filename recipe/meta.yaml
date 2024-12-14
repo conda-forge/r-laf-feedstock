@@ -1,4 +1,4 @@
-{% set version = '0.8.4' %}
+{% set version = "0.8.6" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/LaF_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/LaF/LaF_{{ version }}.tar.gz
-  sha256: d7cc2f9f106b4da3b1b66228977c084bb5a411680dd03d4685806242170840d6
+  sha256: 0627227c07fa0c227f34a6e1f0a1f20ea96b9afa0e3cc09a383fb6c164d8689c
 
 build:
-  number: 3
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -45,13 +45,8 @@ test:
 about:
   home: https://github.com/djvanderlaan/LaF
   license: GPL-3.0-only
-  summary: 'Methods for fast access to large ASCII files.  Currently the following file formats
-    are supported: comma separated format (CSV) and fixed width format. It is assumed
-    that the files are too large to fit into memory, although the package can also be
-    used to efficiently access files that do fit into memory. Methods are provided to
-    access and process files blockwise. Furthermore, an opened file can be accessed
-    as one would an ordinary data.frame. The LaF vignette gives an overview of the functionality
-    provided.'
+  summary: 'Methods for fast access to large ASCII files.  Currently the following file formats are supported: comma separated format (CSV) and fixed width format. It is assumed that the files are too large to fit into memory, although the package can also be used to efficiently access files that do fit into memory. Methods
+    are provided to access and process files blockwise. Furthermore, an opened file can be accessed as one would an ordinary data.frame. The LaF vignette gives an overview of the functionality provided.'
   license_family: GPL3
   license_file:
     - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
